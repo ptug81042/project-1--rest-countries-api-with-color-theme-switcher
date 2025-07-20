@@ -1,117 +1,147 @@
-// Entry point: manages app state, user interaction, and rendering
+// Import the theme module: responsible for applying and toggling dark/light themes
+import { applyTheme, toggleTheme } from './theme.js';
 
-import * as API from "./api.js";
-import * as THEME from "./theme.js";
-import * as ROUTER from "./router.js";
-import * as RENDER from "./render.js";
+// Import data service functions: fetches data from the REST Countries API
+import { fetchAllCountries, fetchCountryByCode } from './api.js';
 
-let countriesCache = []; // Cache all countries to avoid refetching
-let filteredCountries = []; // Result of current search/filter
-let currentTheme = THEME.loadTheme();
+// Import render functions: responsible for injecting HTML into the DOM
+import { renderCountryList, renderCountryDetails } from './render.js';
+
+// Import routing utility: parses location.hash and returns view context
+import { parseRoute } from './router.js';
+
+// DOM element references for the two main views: grid and detail
+const countryGrid = document.getElementById('country-grid'); // Container for the country list
+const detailView = document.getElementById('country-detail'); // Container for a single country's details
+const backButton = document.getElementById('back-button'); // UI button to return from detail view
+const backContainer = document.querySelector('back-button'); // Wrapper around the back button
+
+// DOM element references for interactive controls
+const searchInput = document.getElementById('search-input'); // Search box input
+const regionFilter = document.getElementById('region-filter'); // Dropdown to filter by region
+const themeToggle = document.getElementById('theme-toggle'); // Theme toggle button (light/dark)
+
+// In-memory cache of countries (avoids re-fetching after initial load)
+let allCountries = [];
 
 /**
- * Initialize app: apply theme, setup listeners, initial render
+ * Initializes the application.
+ * - Applies the stored theme (dark/light).
+ * - Fetches country data from the API.
+ * - Renders the full list of countries.
  */
-async function init() {
-    // Apply saved or default theme on load
-    THEME.applyTheme(currentTheme);
+async function initApp() {
+    applyTheme(); // Apply saved theme preference from localStorage or default
 
-    // Fetch all countries once and cache
-    countriesCache = await API.fetchAllCountries();
-    filteredCountries = countriesCache;
+    allCountries = await fetchAllCountries(); // Fetch the full dataset once
 
-    // Listen to hash changes to update views
-    window.addEventListener("hashchange", onRouteChange);
-
-    // Initial render based on current URL hash
-    onRouteChange();
+    // Display initial list of countries in the grid view
+    renderCountryList(countryGrid, allCountries, handleCountryClick);
 }
 
 /**
- * Called when URL hash changes, triggers routing
+ * Called when a user clicks a country card in the grid
+ * - Updates the hash to trigger routing and show the detail view.
  */
-function onRouteChange() {
-    const { route, param } = ROUTER.parseHash();
+function handleCountryClick(code) {
+    location.hash = `#country/${code}`; // Set hash to trigger routing
+}
 
-    if (route === "country" && param) {
-        renderCountryDetailPage(param);
-    } else {
-        renderCountryListPage();
+/**
+ * Called when the user clicks the "Back" button from the detail view.
+ * - Clears the hash, returning the app to the main country list.
+ */
+function handleBackClick() {
+    location.hash = '#'; // Triggers hashchange to re-render grid view
+}
+
+/**
+ * Handles hash change events in the URL.
+ * - Used to control navigation without reloading the page.
+ */
+function handleHashChange() {
+    const { view, code } = parseRoute(); // Destructure route object
+
+    if (view === 'home') {
+        // User is on the main grid view
+
+        detailView.classList.add('hidden'); // Hide detail panel
+        backContainer.classList.add('hidden'); // Hide back button
+        countryGrid.classList.remove('hidden'); // Show the country grid
+
+        // Re-render in case search/filter changed while in detail view
+        renderCountryList(countryGrid, filteredCountries(), handleCountryClick);
+    } else if (view === 'country' && code) {
+        // User navigated to a specific country detail view
+        showCountryDetail(code);
     }
 }
 
 /**
- * Renders the country list page with search and filter controls
+ * Fetches and displays full details for a selected country.
+ * - Updates view state to hide grid and show detail panel.
  */
-function renderCountryListPage() {
-    RENDER.renderCountryList({
-        countries: filteredCountries,
-        onThemeToggle: toggleTheme,
-        onCountrySelect: countryCode => {
-            ROUTER.navigateTo("country", countryCode);
-        },
-        onSearch: searchTerm => {
-            handleSearch(searchTerm);
-        },
-        onRegionChange: region => {
-            handleRegionFilter(region);
-        }
+async function showCountryDetail(code) {
+    const country = await fetchCountryByCode(code); // Fetch full country object
+    if (!country) return; // Fail silently if no country found
+
+    // Switch to detail view
+    countryGrid.classList.add('hidden'); // Hide grid
+    detailView.classList.remove('hidden'); // Show detail view
+    backContainer.classList.remove('hidden'); // Show back button
+
+    // Inject the country details into the DOM
+    renderCountryDetails(detailView, country, handleBackClick, handleCountryClick);
+}
+
+/**
+ * Filters the cached country list based on user input.
+ * - Matches both the name query and the selected region.
+ */
+function filteredCountries() {
+    const query = searchInput.value.toLowerCase(); // Get text input and normalize
+    const region = regionFilter.value; // Get selected region
+
+    // Return countries that match the search and region filter
+    return allCountries.filter(country => {
+        const matchName = country.name.common.toLowerCase().includes(query);
+        const matchRegion = !region || country.region === region;
+        return matchName & matchRegion
     });
 }
 
 /**
- * Renders detail page for a selected country code
- * @param {string} countryCode - cca3 code
+ * Called when either the search input or region filter changes.
+ * - Re-renders the grid view with updated filtered results.
  */
-async function renderCountryDetailPage(countryCode) {
-    const country = await API.fetchCountryByCode(countryCode);
-
-    if (!country) {
-        alert("Country not found.");
-        ROUTER.navigateTo("home");
-        return;
-    }
-
-    RENDER.renderCountryDetail({
-        country,
-        onBack: () => ROUTER.navigateTo("home"),
-        onBorderClick: (borderCode) => ROUTER.navigateTo("country", borderCode),
-        onThemeToggle: toggleTheme
-    });
+function handleInputChange() {
+    renderCountryList(countryGrid, filteredCountries(), handleCountryClick);
 }
 
-/**
- * Handles theme toggle button press
- */
-function toggleTheme() {
-    currentTheme = THEME.toggleTheme();
-}
+// =============================
+//      Bind User Events
+// =============================
 
-/**
- * Handles search input changes and updates country list
- * @param {string} searchTerm
- */
-function handleSearch(searchTerm) {
-    // Filter countriesCache by name
-    filteredCountries = countriesCache.filter(country => country.name.common.toLowerCase().includes(searchTerm.toLowerCase()));
+// Toggle theme when theme button is clicked
+themeToggle.addEventListener('click', () => {
+    toggleTheme(); // Switch dark/light in localStorage
+    applyTheme(); // Apply new theme to DOM
+});
 
-    // Render the list with filtered countries
-    renderCountryListPage();
-}
+// Update results when user types in search field
+searchInput.addEventListener('input', handleInputChange);
 
-/**
- * Handles region filter changes and updates country list
- * @param {string} region
- */
-function handleRegionFilter(region) {
-    if (!region) {
-        filteredCountries = countriesCache;
-    } else {
-        filteredCountries = countriesCache.filter(country => country.region.toLowerCase() === region.toLocaleLowerCase());
-    }
+// Update results when user changes region filter
+regionFilter.addEventListener('change', handleInputChange);
 
-    renderCountryListPage();
-}
+// Return to list view when back button is clicked
+backButton.addEventListener('click', handleBackClick);
 
-// Initialize the app on DOMContentLoaded
-window.addEventListener("DOMContentLoaded", init);
+// Respond to hash change in URL
+window.addEventListener('hashchange', handleHashChange);
+
+// =============================
+//          Start App
+// =============================
+
+initApp(); // Kick off app lifecycle
