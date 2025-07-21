@@ -1,0 +1,25 @@
+/* Styles for detail view and its elements */
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.detail-info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.detail-link {
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+.border-countries {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
