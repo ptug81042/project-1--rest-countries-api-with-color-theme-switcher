@@ -1,0 +1,34 @@
+/* Styles for country list and cards */
+.countries {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+li {
+    border-radius: 0.3rem;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+}
+
+/* Info container inside each card */
+.info-container {
+    padding: 0 1rem 2rem 1rem;
+}
+
+.countries li img {
+    width: 100%;
+    aspect-ratio: 160 / 98;
+}
+
+.info-container h2 {
+    font-size: 1rem;
+    line-height: 3;
+}
+
+.info-container p {
+    font-size: var(--fs-homepage-items);
+    gap: 0.3rem;
+    line-height: 1.7;
+}
