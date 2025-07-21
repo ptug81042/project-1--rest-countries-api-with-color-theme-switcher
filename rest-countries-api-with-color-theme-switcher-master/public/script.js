@@ -189,7 +189,7 @@ const createDetailElement = (country) => {
 const renderCountryDetail = (country) => {
     const main = document.querySelector("main");
     main.innerHTML = "";
-    main.appendChild(createDetailButton("← Back", "/"));
+    main.appendChild(createDetailButton("← Back", "/rest-countries-api-with-color-theme-switcher-master/public/"));
     main.appendChild(createDetailElement(country));
 };
 
