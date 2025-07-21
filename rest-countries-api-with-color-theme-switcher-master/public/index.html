@@ -1,83 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Metadata about the document character encoding -->
-        <meta charset="UTF-8">
-        <!-- Ensure compatibility with Internet Explorer -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Responsive design for mobile devices -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Title Shown in the browser tab -->
-        <title>REST COUNTRIES API</title>
-        <!-- Link to main stylesheet -->
-        <link rel="stylesheet" href="style.css">
-        <!-- Preconnect to Google Fonts for better performance -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-        <!-- Import Nunito Sans font from Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
-            rel="stylesheet"
-        >
-        <!-- Load Font Awesome icons for UI elements -->
-        <script
-            src="https://kit.fontawesome.com/26d6408efe.js"
-            crossorigin="anonymous"
-        ></script>
-    </head>
-
-    <!-- Body starts with dark theme by default -->
-    <body class="dark-theme">
-        <!-- Site header with title and theme toggle button -->
-        <header>
-            <h1>
-                <!-- Clicking title returns to homepage -->
-                <a href="/">Where in the world?</a>
-            </h1>
-
-            <!-- Button toggles between dark and light modes -->
-            <button class="theme-toggle">
-                <!-- Screen reader only label for accessibility -->
-                <span class="sr-only">Toggle color theme</span>
-                <!-- Moon icon for dark mode -->
-                <i class="fa-solid fa-moon"></i>
-                Dark Mode
-            </button>
-        </header>
-
-        <!-- Main content area -->
-        <main>
-            <!-- Filters container: search input and region dropdown -->
-            <div class="filters">
-                <!-- Filters container: search input and region dropdown -->
-                <div class="input-field">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input
-                        type="text"
-                        id="search"
-                        placeholder="Search for a country..."
-                        autocomplete="off"
-                    >
-                </div>
-
-                <!-- Dropdown to filter countries by region -->
-                <select name="region" id="region">
-                    <option value="">Filter by Region</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Americas">Americas</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Europe">Europe</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
-            </div>
-
-            <!-- Section to list countries -->
-            <section>
-                <ul class="countries"></ul> <!-- Countries will be dynamically inserted here -->
-            </section>
-        </main>
-
-        <!-- Link to external JavaScript file that contains the app logic -->
-        <script type="module" src="../src/main.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REST COUNTRIES API</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/26d6408efe.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="dark-theme">
+    <header>
+      <h1><a href="/">Where in the world?</a></h1>
+      <button class="theme-toggle">
+        <span class="sr-only">Toggle color theme</span>
+        <i class="fa-solid fa-moon"></i>Dark Mode
+      </button>
+    </header>
+    <main>
+      <div class="filters">
+        <div class="input-field">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="search"
+            placeholder="Search for a country..."
+            autocomplete="off"
+          />
+        </div>
+        <select name="ragion" id="region">
+          <option value="">Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </div>
+      <section>
+        <ul class="countries"></ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
