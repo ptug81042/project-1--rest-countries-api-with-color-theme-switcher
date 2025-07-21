@@ -1,0 +1,20 @@
+/* Styles for structural elements: header, main, and general containers */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.3rem 5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 5rem;
+}
+
+section {
+    padding: 0 2rem;
+}
