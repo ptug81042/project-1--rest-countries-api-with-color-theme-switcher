@@ -201,8 +201,6 @@ body.light-theme li {
 .info-container p,
 .detail-info-container p {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
   gap: 0.3rem;
   line-height: 1.7;
 }
