@@ -1,13 +1,21 @@
-/* Theme colors and font sizes, centralized for easy updates */
+/* Define global theme colors and font sizes for consistent styling */
+/* Root-level CSS variables allow easy theming and maintainability */
 :root {
+    /* Dark mode element backgrounds (cards, buttons, etc.) */
     --Dark-Mode-Elements: hsl(209, 23%, 22%);
+    /* Dark mode body background */
     --Dark-Mode-Bg: hsl(207, 26%, 17%);
+    /* Light mode primary text color */
     --Light-Mode-Text: hsl(200, 15%, 8%);
+    /* Lighter text tone used for inputs in light mode */
     --Light-Mode-Input: hsl(0, 0%, 52%);
+    /* Light mode body background */
     --Light-Mode-Bg: hsl(0, 0%, 98%);
+    /* Text color used across dark mode and element backgrounds in light mode */
     --Dark-Mode-Text-and-Light-Mode-Elements: hsl(0, 0%, 100%);
 
-    /* Font sizes for different sections */
+    /* Font size used for homepage item attributes */
     --fs-homepage-items: 0.875rem;
+    /* Font size used in the detail page text */
     --fs-detail-page: 1rem;
 }
