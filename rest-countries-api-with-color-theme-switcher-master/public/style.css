@@ -1,10 +1,40 @@
-/* Main entry → Imports all modular CSS together */
+/* ================================ */
+/* MAIN ENTRY POINT: style.css */
+/* ================================ */
+/* This file acts as a central hub to import and link all modular CSS files together. Keeps the structure organized and separates concerns by function/componenet. */
+
+/* --- VARIABLES ---- */
+/* Contains all CSS custom properties (color palette, font sizes, etc.) */
 @import "../styles/variables.css";
+
+/* --- RESET ---- */
+/* Normalizes and resets browser styles (margin, padding, box-sizing, etc.) */
 @import "../styles/reset.css";
+
+/* ---- TYPOGRAPHY ---- */
+/* Sets up font family, base sizes, headings, and text-specific styling */
 @import "../styles/typography.css";
+
+/* ---- LAYOUT ---- */
+/* General layout rules for body, header, and main containers */
 @import "../styles/layout.css";
+
+/* ---- FILTER COMPONENT ---- */
+/* Styles for search input and region dropdown filter */
 @import "../styles/components-filters.css";
+
+/* ---- COUNTRY LIST COMPONENT ---- */
+/* Grid styling and card appearance for country previews on the homepage */
 @import "../styles/components-lists.css";
+
+/* ---- COUNTRY DETAIL COMPONENT ---- */
+/* Layout and styles for the single-country detail view */
 @import "../styles/components-detail.css";
+
+/* ---- THEMES ---- */
+/* Theme toggle support for dark and light modes */
 @import "../styles/themes.css";
+
+/* ---- RESPONSIVE DESIGN ---- */
+/* Media queries to make layout flexible on smaller and larger screens */
 @import "../styles/responsive.css";
