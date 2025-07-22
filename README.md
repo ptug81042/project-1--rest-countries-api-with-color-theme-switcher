@@ -1,7 +1,5 @@
 # 🌍 REST Countries API with Color Theme Switcher
 
-![Design preview](./design/desktop-preview.jpg)
-
 ## 🧠 Overview
 
 This project is a solution to the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-8FVBTvZy). It integrates with the [REST Countries API](https://restcountries.com) and allows users to:
