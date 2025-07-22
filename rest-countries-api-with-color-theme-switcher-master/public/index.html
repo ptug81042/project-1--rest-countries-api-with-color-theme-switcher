@@ -1,54 +1,112 @@
 <!DOCTYPE html>
+<!-- Declares that this is an HTML5 document -->
+
 <html lang="en">
+  <!-- The root HTML tag with a language attribute set to English -->
+
   <head>
+    <!-- Head section containing metadata, stylesheets, and scripts -->
+
     <meta charset="UTF-8" />
+    <!-- Sets the character according to UTF-8 to support all text characters -->
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Ensures the page uses the latest rending engine in Enternet Explorer -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes the layout responsive by matching the screen's width and scaling accordingly -->
+
     <title>REST COUNTRIES API</title>
+    <!-- The page title shown in the browser tab -->
+
     <link rel="stylesheet" href="style.css" />
+    <!-- Link to the main external CSS file for styling -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Optimizes loading of Google Fonts by establishing early connections -->
+
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
       rel="stylesheet"
     />
+    <!-- Imports the 'Nunito Sans' font with three font weights: 300, 600, and 800 -->
+
     <script
       src="https://kit.fontawesome.com/26d6408efe.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Loads Font Awesome icons via a personal kit with cross-origin enabled for security -->
   </head>
+
   <body class="dark-theme">
+    <!-- The page body starts in dark theme mode using a class that can be toggled  -->
+
     <header>
-      <h1><a href="/">Where in the world?</a></h1>
+      <!-- Page header containing the app title and theme toggle -->
+
+      <h1>
+        <a
+          href="/rest-countries-api-with-color-theme-switcher-master/public/index.html"
+          >Where in the world?</a
+        >
+      </h1>
+      <!-- Main title of the app; clicking it routes to the homepage -->
+
       <button class="theme-toggle">
+        <!-- Theme toggle button to switch between light and dark modes -->
+
         <span class="sr-only">Toggle color theme</span>
+        <!-- Text visible only to screen readers for accessibility -->
+
         <i class="fa-solid fa-moon"></i>Dark Mode
+        <!-- Moon icon representing the current theme + visible label -->
       </button>
     </header>
+
     <main>
+      <!-- Main content area of the app -->
+
       <div class="filters">
+        <!-- Filter section that includes search and dropdown -->
+
         <div class="input-field">
+            <!-- Search field container -->
+
           <i class="fa-solid fa-magnifying-glass"></i>
+          <!-- Search icon from Font Awesome -->
+
           <input
             type="text"
             id="search"
             placeholder="Search for a country..."
             autocomplete="off"
           />
+          <!-- Search input fields with a placeholder; autocomplete off to prevent browser suggestions -->
         </div>
+
         <select name="ragion" id="region">
+        <!-- Dropdown for filtering countries by region -->
+
           <option value="">Filter by Region</option>
+          <!-- Default blank option prompting user to filter -->
+
           <option value="Africa">Africa</option>
           <option value="Americas">America</option>
           <option value="Asia">Asia</option>
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>
         </select>
+        <!-- Each option corresponds to a region defined in the country data -->
       </div>
       <section>
+        <!-- Section for rendering the list of countries -->
+
         <ul class="countries"></ul>
+        <!-- Unordered list that will be populated dynamically by JavaScript -->
       </section>
     </main>
     <script src="script.js"></script>
+    <!-- Loads the JavaScript logic at the end of the body for better performance -->
   </body>
 </html>
