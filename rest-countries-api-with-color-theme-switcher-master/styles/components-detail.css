@@ -1,25 +1,30 @@
-/* Styles for detail view and its elements */
-.detail-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
+/* Styles for individual country detail view */
 
-.detail-info-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.detail-link {
-    padding: 0.5rem;
-    border-radius: 0.3rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
-}
-
+/* Container for entire country detail section */
 .border-countries {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid; /* Use CSS Grid layout for flexible column structure */
+    grid-template-columns: 1fr 1fr; /* Create two equal-width columns (flag + info) */
+    gap: 3rem; /* Add spacing between the two columns */
+}
+
+/* Container that holds the detailed information about the country */
+.detail-info-container {
+    display: grid; /* Use grid to organize content inside */
+    grid-template-columns: 1fr 1fr; /* Two-column layout for details like population, region, etc. */
+    gap: 1rem; /* Add spacing between the items in the grid */
+}
+
+/* Style for back button and border country buttons */
+.detail-link {
+    padding: 0.5rem; /* Padding inside the button for better click area */
+    border-radius: 0.3rem; /* Slight rounding on corners for modern feel */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35); /* Subtle shadow for elevation */
+}
+
+/* Container for the border countries section */
+.border-countries {
+    display: flex; /* Use Flexbox to arrange items in a row */
+    align-items: center; /* Vertically align border country buttons with label */
+    flex-wrap: wrap; /* Allow buttons to wrap onto the next line if needed */
+    gap: 1rem; /* Space between each border country button */
 }
