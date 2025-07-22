@@ -1,54 +1,89 @@
-/* Media queries to adjust layouts at different screen widths */
+/* Responsive layout adjustments using media queries */
+
+/* ----------------------------------- */
+/* Medium screens (max-width: 1000px) */
+/* ----------------------------------- */
 @media (max-width: 1000px) {
+    /* Reduce country cards per row from 4 to 3 for medium screens */
     .countries {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* Display 3 cards per row */
     }
+
+    /* Stack flag and detail info vertically instead of side-by-side */
     .detail-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column layout for better readability */
     }
 }
 
+/* ----------------------------------- */
+/* Smaller tablets / small screens (max-width: 800px) */
+/* ----------------------------------- */
 @media (max-width: 800px) {
+    /* Reduce horizontal padding in header for smaller screens */
     header {
-        padding: 1.3rem 1rem;
+        padding: 1.3rem 1rem; /* Condensed padding to fit narrow width */
     }
+
+    /* Adjust main content padding for consistency */
     main {
-        padding: 2rem 1rem;
+        padding: 2rem 1rem; /* Maintain breathing space with narrower sides */
     }
+
+    /* Reduce cards per row from 3 to 2 for smaller layouts */
     .countries {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Show 2 country cards per row */
     }
+
+    /* Shrink search input width for limited space */
     .input-field {
-        width: 300px;
+        width: 300px; /* Fits better in a mobile-width layout */
     }
 }
 
+/* ----------------------------------- */
+/* Mobile screens (max-width: 600px) */
+/* ----------------------------------- */
 @media (max-width: 600px) {
+    /* Reduce header title font size for small screens */
     h1 {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Prevent overflow and preserve readability */
     }
+
+    /* Stack search and dropdown filters vertically */
     .filters {
-        flex-direction: column;
-        gap: 3rem;
+        flex-direction: column; /* Better flow for vertical screen orientation */
+        gap: 3rem; /* Add spacing between filters */
     }
+
+    /* Input field takes full width on small screens */
     .input-field {
-        width: 100%;
+        width: 100%; /* Responsive form width */
     }
+
+    /* Show one country card per row for clean mobile UI */
     .countries {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack cards vertically */
     }
+
+    /* Detail info switches to one column for better stacking */
     .detail-info-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Vertical layout for country details */
     }
 }
 
+/* ----------------------------------- */
+/* Large desktop screens (min-width: 1440px) */
+/* ----------------------------------- */
 @media (min-width: 1440px) {
+    /* Center entire body content and constrain width */
     body {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Align content centrally */
     }
+
+    /* Cap main width to avoid orerstretched layouts on large monitors */
     main {
-        width: 1400px;
+        width: 1400px; /* Limit max width for consistent content presentation */
     }
 }
