@@ -1,20 +1,20 @@
-/* Styles for structural elements: header, main, and general containers */
+/* Defines main structural layout for header, main content, and sections */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.3rem 5rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+    display: flex; /* Enables horizontal layout */
+    justify-content: space-between; /* Pushes content to the edges */
+    align-items: center; /* Vertically centers items */
+    width: 100%; /* Full width top bar */
+    padding: 1.3rem 5rem; /* Padding around header content */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.09); /* Soft header shadow */
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 2rem 5rem;
+    display: flex; /* Use flexbox for main content */
+    flex-direction: column; /* Align items vertically */
+    gap: 3rem; /* Vertical spacing between sections */
+    padding: 2rem 5rem; /* Inner spacing on mobile or desktop */
 }
 
 section {
-    padding: 0 2rem;
+    padding: 0 2rem; /* Horizontal padding in each section */
 }
