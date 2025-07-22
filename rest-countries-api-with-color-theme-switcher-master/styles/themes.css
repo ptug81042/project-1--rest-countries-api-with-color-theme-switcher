@@ -1,28 +1,35 @@
-/* Theme-specific color overrides for light and dark modes */
+/* ========================= */
+/* Theme Styles (Dark/Light) */
+/* ========================= */
+
+/* ----------- DARK THEME ----------- */
 body.dark-theme {
-    background-color: var(--Dark-Mode-Bg);
-    color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
+    background-color: var(--Dark-Mode-Bg); /* Apply dark background to entire page */
+    color: var(--Dark-Mode-Text-and-Light-Mode-Elements); /* Use light text for contrast */
 }
 
+/* ----------- LIGHT THEME ----------- */
 body.light-theme {
-    background-color: var(--Light-Mode-Bg);
-    color: var(--Light-Mode-Text);
+    background-color: var(--Light-Mode-Bg); /* Light background for clean appearance */
+    color: var(--Light-Mode-Text); /* Darker text color for readability */
 }
 
+/* ----------- COMPONENTS WITH DARK THEME STYLING ----------- */
 body.dark-theme header,
 body.dark-theme .input-field,
 body.dark-theme li,
 body.dark-theme .detail-link,
 body.dark-theme #region {
-    background-color: var(--Dark-Mode-Elements);
-    color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
+    background-color: var(--Dark-Mode-Elements); /* Apply darker shade to elements */
+    color: var(--Dark-Mode-Text-and-Light-Mode-Elements); /* Maintain light readable text */
 }
 
+/* ----------- COMPONENTS WITH LIGHT THEME STYLING ----------- */
 body.light-theme header,
 body.light-theme .input-field,
 body.light-theme li,
 body.light-theme .detail-link,
 body.light-theme #region {
-    background-color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
-    color: var(--Light-Mode-Text);
+    background-color: var(--Dark-Mode-Text-and-Light-Mode-Elements); /* Light card/UI background */
+    color: var(--Light-Mode-Text); /* Use dark text for visibility in light theme */
 }
