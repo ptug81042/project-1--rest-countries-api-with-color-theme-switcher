@@ -1,6 +1,6 @@
 // Renders list of country cards using utility functions
 
-import { createInfoElement, ceeateFlagImg } from './dom-utils.js';
+import { createInfoElement, createFlagImg } from './dom-utils.js';
 
 /**
  * Creates a single <li> list item representing one country card.
@@ -34,8 +34,8 @@ export const createCountryElement = (country) => {
 /**
  * Renders an array of country objects into the .countries list
  */
-export const renderCountryList = (country) => {
-    const li = document.querySelector(".countries");
+export const renderCountryList = (countries) => {
+    const list = document.querySelector(".countries");
     list.innerHTML = ""; // Clear existing
     countries.forEach((country) => {
         list.appendChild(createCountryElement(country));

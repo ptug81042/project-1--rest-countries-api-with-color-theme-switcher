@@ -9,7 +9,7 @@ export const renderDashboard = () => {
     const searchInput = document.querySelector("#search");
     const regionSelect = document.querySelector("#region");
 
-    const apiUrl = "https://restcountries.com/v3,1/all?fields=name,flags,region,capital,population,cca2";
+    const apiUrl = "https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,cca2";
 
     let countries = [];
     let search = "";

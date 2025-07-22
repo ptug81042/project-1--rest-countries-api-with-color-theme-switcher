@@ -16,7 +16,7 @@ export const createInfoElement = (label, value) => {
 export const createFlagImg = (country) => {
     const div = document.createElement("div");
     const img = document.createElement("img");
-    img.src = country,flagUrl;
+    img.src = country.flagUrl;
     img.alt = `${country.name} flag`; // Accessible alt text
     div.appendChild(img);
     return div;

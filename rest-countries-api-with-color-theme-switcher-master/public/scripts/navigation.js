@@ -27,7 +27,7 @@ export const renderDetail = () => {
                 flagUrl: c.flags?.png || "",
                 name: c.name?.common || "Unknown",
                 nativeName: Object.values(c.name.nativeName || { eng: { official: "Unknown" } })[0].official,
-                population: c.population>toLocaleString("en-GB") || "0",
+                population: c.population.toLocaleString("en-GB") || "0",
                 region: c.region || "Unknown",
                 subRegion: c.subregion || "Unknown",
                 capital: c.capital?.[0] || "Unknown",

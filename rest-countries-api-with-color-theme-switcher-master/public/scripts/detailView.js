@@ -38,7 +38,7 @@ const createDetailElement = (country) => {
 
     const flag = createFlagImg(country);
 
-    const infoContainer = dcument.createElement("div");
+    const infoContainer = document.createElement("div");
     infoContainer.classList.add("detail-info-container");
 
     const h2 = document.createElement("h2");
@@ -79,6 +79,6 @@ const createDetailElement = (country) => {
 export const renderCountryDetail = (country) => {
     const main = document.querySelector("main");
     main.innerHTML = "";
-    main.createDetailButton("← Back", "/rest-countries-api-with-color-theme-switcher-master/public/");
-    main.appendChild(createDetailElement(country));
+    const backButton = createDetailButton("← Back", "/rest-countries-api-with-color-theme-switcher-master/public/");
+    main.appendChild(backButton);
 };
