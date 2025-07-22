@@ -1,6 +1,6 @@
-/* Global reset to unify styling across browsers */
+/* Basic reset to clear default browser styles for a consistent baseline */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove default spacing */
+    padding: 0; /* Clear inherited spacing */
+    box-sizing: border-box; /* Including padding/border within element width/height */
 }
