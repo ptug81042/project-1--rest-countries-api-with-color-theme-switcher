@@ -1,34 +1,33 @@
-/* Styles for country list and cards */
+/* Country card styles displayed in the homepage list */
 .countries {
-    list-style: none;
+    list-style: none; /* Remove bullet points */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 2rem; /* Space between cards */
 }
 
 li {
     border-radius: 0.3rem;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
+    overflow: hidden; /* Prevent content overflow */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.09); /* Subtle card shadow */
 }
 
-/* Info container inside each card */
 .info-container {
-    padding: 0 1rem 2rem 1rem;
+    padding: 0 1rem 2rem 1rem; /* Padding below image */
 }
 
 .countries li img {
-    width: 100%;
-    aspect-ratio: 160 / 98;
+    width: 100%; /* Image fills container width */
+    aspect-ratio: 160 / 98; /* Main consistent height ratio */
 }
 
 .info-container h2 {
     font-size: 1rem;
-    line-height: 3;
+    line-height: 3; /* Add space between title and details */
 }
 
 .info-container p {
     font-size: var(--fs-homepage-items);
-    gap: 0.3rem;
+    gap: 0.3rem; /* Space between label and value */
     line-height: 1.7;
 }
