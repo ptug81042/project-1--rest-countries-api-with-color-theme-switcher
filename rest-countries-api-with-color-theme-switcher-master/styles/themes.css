@@ -1,0 +1,28 @@
+/* Theme-specific color overrides for light and dark modes */
+body.dark-theme {
+    background-color: var(--Dark-Mode-Bg);
+    color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
+}
+
+body.light-theme {
+    background-color: var(--Light-Mode-Bg);
+    color: var(--Light-Mode-Text);
+}
+
+body.dark-theme header,
+body.dark-theme .input-field,
+body.dark-theme li,
+body.dark-theme .detail-link,
+body.dark-theme #region {
+    background-color: var(--Dark-Mode-Elements);
+    color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
+}
+
+body.light-theme header,
+body.light-theme .input-field,
+body.light-theme li,
+body.light-theme .detail-link,
+body.light-theme #region {
+    background-color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
+    color: var(--Light-Mode-Text);
+}
