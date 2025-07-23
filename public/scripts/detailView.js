@@ -79,6 +79,9 @@ const createDetailElement = (country) => {
 export const renderCountryDetail = (country) => {
     const main = document.querySelector("main");
     main.innerHTML = "";
+
     const backButton = createDetailButton("← Back", "/public/");
-    main.appendChild(backButton);
+    const detailElement = createDetailElement(country);
+
+    main.append(backButton, detailElement);
 };
