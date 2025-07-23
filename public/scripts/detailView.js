@@ -79,6 +79,6 @@ const createDetailElement = (country) => {
 export const renderCountryDetail = (country) => {
     const main = document.querySelector("main");
     main.innerHTML = "";
-    const backButton = createDetailButton("← Back", "/rest-countries-api-with-color-theme-switcher-master/public/");
+    const backButton = createDetailButton("← Back", "/public/");
     main.appendChild(backButton);
 };
