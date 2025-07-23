@@ -2,7 +2,7 @@
 
 ## 🧠 Overview
 
-Live Demo Via Netlify: https://magnificent-gumption-3e65f3.netlify.app/
+Live Demo Via Netlify: https://magical-bombolone-19af45.netlify.app/public/
 
 This project is a solution to the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-8FVBTvZy). It integrates with the [REST Countries API](https://restcountries.com) and allows users to:
 
